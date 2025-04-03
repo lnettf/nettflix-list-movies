@@ -1,9 +1,10 @@
+import { Link } from "react-router";
 import styled from "styled-components";
 
 export const Container = styled.div`
-  border: solid 1px black;
   display: flex;
   gap: 12px;
+  overflow-x: auto;
 `;
 
 export const Item = styled.div`
@@ -12,4 +13,8 @@ export const Item = styled.div`
   justify-content: center;
   align-items: center;
   gap: 12px;
+`;
+
+export const CustomLink = styled(Link)`
+  text-decoration: none;
 `;
