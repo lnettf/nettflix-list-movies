@@ -1,53 +1,69 @@
-import { useState } from "react";
-import { Links } from "react-router";
+import {
+  TextField,
+  Button,
+  Box,
+  Typography,
+  Link as MuiLink,
+} from "@mui/material";
 import { Link } from "react-router";
-import { useNavigate } from "react-router";
+import { useLoginUser } from "./hooks/useLoginUser";
 
-const DEFAULT_FORM = {
-  username: "",
-  password: "",
-};
 export const Login = () => {
-  const [form, setForm] = useState(DEFAULT_FORM);
-
-  const handleChange = (event) => {
-    // event.target.name -> name del input (password)
-    // event.target.value -> valor del input (123456)
-
-    setForm((form) => {
-      return {
-        ...form,
-        [event.target.name]: event.target.value,
-      };
-    });
-  };
+  const { handleChange, form, login } = useLoginUser();
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.warn({
-      form,
-    });
+    login();
   };
 
   return (
-    <>
-      <form>
-        <label>
-          Username:
-          <input type="text" name="username" onChange={handleChange} />
-        </label>
-        <br />
-        <label>
-          Password:
-          <input type="password" name="password" onChange={handleChange} />
-        </label>
-        <br />
-        <button onClick={handleSubmit}>Enviar</button>
-      </form>
-      <div>
-        <p>¿Eres nuevo?</p>
-        <Link to="/register">Registrate</Link>
-      </div>
-    </>
+    <Box
+      component="form"
+      onSubmit={handleSubmit}
+      sx={{
+        maxWidth: 400,
+        mx: "auto",
+        mt: 5,
+        display: "flex",
+        flexDirection: "column",
+        gap: 2,
+      }}
+    >
+      <Typography variant="h5" component="h1" align="center">
+        Iniciar Sesión
+      </Typography>
+
+      <TextField
+        label="Username"
+        variant="outlined"
+        name="username"
+        fullWidth
+        value={form.username}
+        onChange={handleChange}
+      />
+
+      <TextField
+        label="Password"
+        variant="outlined"
+        type="password"
+        name="password"
+        fullWidth
+        value={form.password}
+        onChange={handleChange}
+      />
+
+      <Button type="submit" variant="contained" color="primary" fullWidth>
+        Enviar
+      </Button>
+
+      <Box textAlign="center" mt={2}>
+        <Typography variant="body2">
+          ¿Eres nuevo?{" "}
+          <MuiLink component={Link} to="/register">
+            Regístrate
+          </MuiLink>
+        </Typography>
+      </Box>
+    </Box>
   );
 };

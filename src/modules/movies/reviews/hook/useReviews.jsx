@@ -1,5 +1,6 @@
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import { ReviewsContext } from "../Reviews.context";
 
 export const useReviews = (id) => {
   const [reviews, setReviews] = useState([]);

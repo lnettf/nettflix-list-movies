@@ -8,9 +8,9 @@ export const useAuth = () => {
     localStorage.removeItem(KEY);
   };
 
-  const getToken = () => {
-    return localStorage.getItem(KEY);
-  };
+  return { saveToken, clearToken };
+};
 
-  return { saveToken, clearToken, getToken };
+export const getToken = () => {
+  return localStorage.getItem(KEY);
 };

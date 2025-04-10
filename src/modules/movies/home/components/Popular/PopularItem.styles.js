@@ -21,12 +21,6 @@ export const Title = styled.p`
   margin: 0px;
 `;
 
-export const Score = styled.p`
-  color: #cb7d19;
-  text-decoration: none;
-  margin: 0px;
-`;
-
 export const Image = styled.img`
   width: 120px;
   height: 100px;

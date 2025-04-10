@@ -6,32 +6,50 @@ import Swal from "sweetalert2";
 const DEFAULT_FORM = {
   username: "",
   password: "",
-  lastName: "",
-  firstName: "",
 };
-export const useRegisterUser = () => {
+export const useLoginUser = () => {
   const [form, setForm] = useState(DEFAULT_FORM);
+  const { saveToken } = useAuth();
 
-  const saveUser = async () => {
+  const login = async () => {
     try {
-      await axios.post(`${import.meta.env.VITE_API_URL}/auth/signup`, form);
+      const response = await axios.post(
+        `${import.meta.env.VITE_API_URL}/auth/login`,
+        form
+      );
 
+      /**
+       *
+       * response : {
+       *    data: {
+       *        token: "Bearer ey...."
+       *    }
+       * }
+       */
+
+      saveToken(response.data.token);
       Swal.fire({
-        title: "Registro okey!",
+        title: "Inicio de sesion okey!",
         icon: "success",
         draggable: true,
       });
     } catch (error) {
-      console.error({ error });
       Swal.fire({
-        title: "Regsitro con error!",
+        title: "Inicio de sesion con error!",
         icon: "error",
         draggable: true,
       });
+      console.error({ error });
     }
   };
 
   const handleChange = (event) => {
+    /**
+     * {
+     *    [event.target.name]: event.target.value,
+     *    username: "luis"
+     * }
+     */
     setForm((form) => {
       return {
         ...form,
@@ -43,6 +61,6 @@ export const useRegisterUser = () => {
   return {
     handleChange,
     form,
-    saveUser,
+    login,
   };
 };

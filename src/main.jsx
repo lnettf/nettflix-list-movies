@@ -7,6 +7,8 @@ import { Register } from "./modules/auth/register/Register";
 import { Movies } from "./modules/movies/home/movies";
 import { Route } from "react-router";
 import { MoviesById } from "./modules/movies/byId/MoviesById";
+import axios from "axios";
+import { getToken } from "./modules/auth/hooks/useAuth";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
@@ -19,4 +21,18 @@ createRoot(document.getElementById("root")).render(
       </Routes>
     </BrowserRouter>
   </StrictMode>
+);
+
+axios.interceptors.request.use(
+  (config) => {
+    const token = getToken();
+
+    if (token) {
+      config.headers["Authorization"] = "Bearer " + getToken();
+    }
+    return config;
+  },
+  (error) => {
+    Promise.reject(error);
+  }
 );

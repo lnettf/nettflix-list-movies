@@ -1,15 +1,20 @@
-import { Link } from "react-router";
-import styled from "styled-components";
-
-const Container = styled(Link)`
-  text-decoration: none;
-  color: black;
-`;
+import { Link as RouterLink } from "react-router";
+import { Link, Typography } from "@mui/material";
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 
 export const GoBack = () => {
   return (
-    <Container to="/movies">
-      <span>⬅</span>Go Back
-    </Container>
+    <Link
+      component={RouterLink}
+      to="/movies"
+      underline="none"
+      color="text.primary"
+      display="flex"
+      alignItems="center"
+      sx={{ mb: 2 }}
+    >
+      <ArrowBackIcon sx={{ mr: 1 }} />
+      <Typography variant="body1">Volver</Typography>
+    </Link>
   );
 };
