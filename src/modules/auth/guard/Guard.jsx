@@ -6,11 +6,15 @@ export const Guard = ({ children }) => {
   // Verifica si el usuario está autenticado
   const { isAuthenticated } = useAuth();
 
+  console.warn({
+    isAuthenticated,
+    message: "Guard.jsx: Verificando autenticación del usuario",
+  });
   if (!isAuthenticated) {
     // Redirige al login si no está autenticado
     return <Navigate to="/" />;
   }
 
   // Renderiza el contenido protegido si el usuario está autenticado
-  return children;
+  return <h1>{children}</h1>;
 };

@@ -17,10 +17,22 @@ createRoot(document.getElementById("root")).render(
         <Route path={ROUTES.ROOT} element={<Login />} />
         <Route path={ROUTES.REGISTER} element={<Register />} />
 
-        <Route element={<Guard />}>
-          <Route path={ROUTES.MOVIES} element={<Movies />} />
-          <Route path={ROUTES.MOVIE_DETAIL} element={<MoviesById />} />
-        </Route>
+        <Route
+          path="/movies"
+          element={
+            <Guard>
+              <Movies />
+            </Guard>
+          }
+        />
+        <Route
+          path="/movies/:id"
+          element={
+            <Guard>
+              <MoviesById />
+            </Guard>
+          }
+        />
 
         <Route
           path={ROUTES.NOT_FOUND}
