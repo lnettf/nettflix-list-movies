@@ -1,4 +1,5 @@
 export const useAuth = () => {
+  // Verifica si hay token guardado
   const isAuthenticated = getToken() !== null;
 
   return { saveToken, clearToken, isAuthenticated };

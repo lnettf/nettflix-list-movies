@@ -17,16 +17,6 @@ export const useLoginUser = () => {
         `${import.meta.env.VITE_API_URL}/auth/login`,
         form
       );
-
-      /**
-       *
-       * response : {
-       *    data: {
-       *        token: "Bearer ey...."
-       *    }
-       * }
-       */
-
       saveToken(response.data.token);
       Swal.fire({
         title: "Inicio de sesion okey!",
