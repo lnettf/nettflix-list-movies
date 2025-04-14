@@ -1,14 +1,17 @@
-const KEY = "token";
 export const useAuth = () => {
-  const saveToken = (token) => {
-    localStorage.setItem(KEY, token);
-  };
+  const isAuthenticated = getToken() !== null;
 
-  const clearToken = () => {
-    localStorage.removeItem(KEY);
-  };
+  return { saveToken, clearToken, isAuthenticated };
+};
 
-  return { saveToken, clearToken };
+const KEY = "token";
+
+const saveToken = (token) => {
+  localStorage.setItem(KEY, token);
+};
+
+const clearToken = () => {
+  localStorage.removeItem(KEY);
 };
 
 export const getToken = () => {

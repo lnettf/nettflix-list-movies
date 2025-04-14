@@ -1,12 +1,13 @@
 import { Link as RouterLink } from "react-router";
 import { Link, Typography } from "@mui/material";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
+import { ROUTES } from "../../../../../routes";
 
 export const GoBack = () => {
   return (
     <Link
       component={RouterLink}
-      to="/movies"
+      to={ROUTES.MOVIES}
       underline="none"
       color="text.primary"
       display="flex"
