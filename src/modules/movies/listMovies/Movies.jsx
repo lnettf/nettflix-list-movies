@@ -1,4 +1,4 @@
-import { Allmovies } from "./components/allMovies/AllMovies";
+import { Allmovies } from "./components/AllMovies/AllMovies";
 import { Popular } from "./components/Popular/Popular";
 import { Box, Typography, Divider } from "@mui/material";
 
