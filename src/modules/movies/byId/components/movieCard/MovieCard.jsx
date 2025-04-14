@@ -1,5 +1,5 @@
-import { useMovie } from "../hooks/useMovie";
-import { Container, Image, Info, Text, Span, Title } from "./MovieCard.styles";
+import { useMovie } from "../../hooks/useMovie";
+import { Container, Image, Info, Text, Title } from "./MovieCard.styles";
 import { Box, Typography, Chip, CircularProgress, Alert } from "@mui/material";
 
 export const MovieCard = ({ id }) => {

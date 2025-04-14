@@ -1,5 +1,4 @@
 import { useContext } from "react";
-import { CreateReview } from "./componets/CreateReview";
 import { ReviewsContext, ReviewsProvider } from "./Reviews.context";
 import { ReviewsContainer } from "./Reviews.styles";
 import {
@@ -11,6 +10,7 @@ import {
   Stack,
   Paper,
 } from "@mui/material";
+import { CreateReview } from "./CreateReview";
 
 export const Reviews = ({ id }) => {
   return (

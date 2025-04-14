@@ -4,7 +4,7 @@ import "./index.css";
 import { BrowserRouter, Routes } from "react-router";
 import { Login } from "./modules/auth/login/Login";
 import { Register } from "./modules/auth/register/Register";
-import { Movies } from "./modules/movies/home/movies";
+import { Movies } from "./modules/movies/listMovies/movies";
 import { Route } from "react-router";
 import { MoviesById } from "./modules/movies/byId/MoviesById";
 import axios from "axios";
