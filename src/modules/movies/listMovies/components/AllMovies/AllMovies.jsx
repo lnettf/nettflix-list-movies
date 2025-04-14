@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useAllMovies } from "./hooks/useAllMovies";
-import { Movie } from "./Movie/movie";
+import { Movie } from "./Movie/Movie";
 import { Box, Typography, CircularProgress, Alert } from "@mui/material";
 
 const FIVE_MINUTES = 300_000;
